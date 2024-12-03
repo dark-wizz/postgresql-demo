@@ -11,7 +11,7 @@ exports.insetUsername = async (username) => {
 
 exports.searchUsername = async (username) => {
   const { rows } = await pool.query(
-    "SELECT * FROM usernames WHERE username like $1",
+    "SELECT * FROM usernames WHERE username ilike $1",
     [`%${username}%`],
   );
   return rows;
