@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form style="display:inline-block;" action="/new" method="post">
+      <input type="text" placeholder="add user" name="username">
+    </form>
+    <form style="display:inline-block;" action="/search" method="get">
+      <input type="text" placeholder="search user" name="username">
+    </form>
+    <form action="/delete" method="post">
+      <input type="submit" value="delete users" onclick="return confirm('Delete all the users permenantly?')">
+    </form>
+    <h3>Usernames:</h3>
+    <ol>
+      <% if(locals.usernames){ %>
+      <% usernames.map(u => { %>
+        <li><%= u.username %></li>
+      <% }) %>
+      <% } %>
+    </ol>
+  </body>
+</html>
